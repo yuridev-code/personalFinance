@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Tracker</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f3f4f6; color: #111; }
+      .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+      header { margin-bottom: 20px; }
+      h1 { margin: 0 0 10px; }
+      nav a { margin-right: 15px; color: #0b79d0; text-decoration: none; }
+      nav a:hover { text-decoration: underline; }
+      form input, form select { width: 100%; padding: 8px; margin: 5px 0 12px; border: 1px solid #ccc; border-radius: 4px; }
+      form button { padding: 10px 16px; border: none; border-radius: 4px; background: #0b79d0; color: white; cursor: pointer; }
+      form button:hover { background: #095a9c; }
+      table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+      th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+      th { background: #fafafa; }
+      .card { background: white; padding: 18px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+      .actions { margin-top: 10px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Personal Finance Tracker</h1>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/report">Monthly Report</a>
+          <a href="/export">Export CSV</a>
+        </nav>
+      </header>
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

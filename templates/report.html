@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+  <h2>Monthly Report</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in totals %}
+      <tr>
+        <td>{{ item.category }}</td>
+        <td>{{ '%.2f'|format(item.total) }}</td>
+      </tr>
+      {% else %}
+      <tr><td colspan="2">No expenses for this month.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div style="width: 100%; max-width: 500px; margin-top: 20px;">
+    <canvas id="chart"></canvas>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const data = {
+    labels: {{ totals | map(attribute='category') | list | tojson }},
+    datasets: [{
+      data: {{ totals | map(attribute='total') | list | tojson }},
+      backgroundColor: ['#4f46e5', '#ec4899', '#f59e0b', '#10b981', '#3b82f6', '#ef4444'],
+    }]
+  };
+  new Chart(document.getElementById('chart'), {
+    type: 'pie',
+    data: data,
+    options: { responsive: true }
+  });
+</script>
+{% endblock %}
