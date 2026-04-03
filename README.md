@@ -30,14 +30,15 @@ This project was initially generated using an AI-assisted workflow and is being 
 ---
 
 ## Project Structure
-project/
-│
-├── app.py
-├── expenses.db
-│
-├── templates/
-│ ├── base.html
-│ ├── index.html
-│ └── report.html
-│
-└── README.md
+    project/
+    │
+    ├── app.py
+    ├── expenses.db
+    │
+    ├── templates/
+    │ ├── base.html
+    │ ├── index.html
+    │ └── report.html
+    │
+    └── README.md
+---    
